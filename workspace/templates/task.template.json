@@ -1,0 +1,31 @@
+{
+    "id": "T-YYYYMMDD-XXXXXX",
+    "title": "<short, outcome-oriented title>",
+    "context": "<assumptions, constraints, defaults>",
+    "user_story": "As a <role>, I want <capability>, so that <benefit>.",
+    "acceptance_criteria": [
+        "<criterion 1 (machine-checkable)>",
+        "<criterion 2>"
+    ],
+    "tasks": [
+        {
+            "id": "T1",
+            "desc": "<actionable subtask>",
+            "owner": "dev",
+            "est_minutes": 60,
+            "deps": []
+        }
+    ],
+    "artifacts": [
+        "<files/APIs to touch>"
+    ],
+    "test_plan": [
+        "<step 1 to verify>",
+        "<step 2>"
+    ],
+    "priority": "med",
+    "status": "backlog",
+    "created_at": "2025-01-01T00:00:00.000Z",
+    "updated_at": "2025-01-01T00:00:00.000Z",
+    "labels": []
+}

@@ -1,0 +1,133 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PM Task",
+    "type": "object",
+    "required": [
+        "id",
+        "title",
+        "context",
+        "user_story",
+        "acceptance_criteria",
+        "tasks",
+        "artifacts",
+        "test_plan",
+        "priority",
+        "status",
+        "created_at",
+        "updated_at",
+        "labels"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Globally unique task id (e.g., T-2025-0001)"
+        },
+        "title": {
+            "type": "string"
+        },
+        "context": {
+            "type": "string",
+            "description": "Assumptions, constraints, defaults filled by PM agent"
+        },
+        "user_story": {
+            "type": "string",
+            "description": "As a <role>, I want <capability>, so that <benefit>."
+        },
+        "acceptance_criteria": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1
+        },
+        "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "desc",
+                    "owner",
+                    "est_minutes",
+                    "deps"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Subtask id (e.g., T1)"
+                    },
+                    "desc": {
+                        "type": "string"
+                    },
+                    "owner": {
+                        "type": "string",
+                        "enum": [
+                            "dev",
+                            "reviewer",
+                            "docs"
+                        ]
+                    },
+                    "est_minutes": {
+                        "type": "number",
+                        "minimum": 1
+                    },
+                    "deps": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Subtask ids this depends on"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "artifacts": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Files/APIs to touch"
+        },
+        "test_plan": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Steps to verify acceptance criteria"
+        },
+        "priority": {
+            "type": "string",
+            "enum": [
+                "low",
+                "med",
+                "high"
+            ]
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "backlog",
+                "doing",
+                "done",
+                "blocked"
+            ]
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "labels": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "additionalProperties": false
+}
